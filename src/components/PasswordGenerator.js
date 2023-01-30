@@ -26,10 +26,13 @@ const PasswordGenerator = () => {
     };
 
     let submit = (event) => {
-        console.log("SS")
         event.preventDefault();
+        console.log("SS");
         let passwordObj = PasswordService.getPasswordObj(state);
-        let thePassword = PasswordService.generatePassword(passwordObj,state.passwordLength);
+        let thePassword = PasswordService.generatePassword(
+            passwordObj,
+            state.passwordLength
+        );
         console.log(thePassword);
     };
 
@@ -40,7 +43,7 @@ const PasswordGenerator = () => {
                 <input
                     value={state.generatedPassword}
                     onChange={updateInput}
-                    required={true}
+                    // required={true}
                     type="text"
                     name="generatedPassword"
                     placeholder="password"
@@ -93,7 +96,7 @@ const PasswordGenerator = () => {
                     </span>
                 </div>
 
-                <input type="button" value="Generate" />
+                <button type="submit">Generate</button>
             </form>
         </div>
     );
