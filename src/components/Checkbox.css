@@ -1,0 +1,24 @@
+.checkBox[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    display: grid;
+    place-content: center;
+    border-radius: 5px;
+    border: 1px solid rgb(132, 132, 132);
+}
+
+.checkBox[type="checkbox"]::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 15px 15px #26a0da;
+    border-radius: 3px;
+}
+
+.checkBox[type="checkbox"]:checked::before {
+    transform: scale(1);
+}

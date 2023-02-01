@@ -1,38 +1,345 @@
-.App {
-  text-align: center;
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(243, 244, 246);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+    display: flex;
+    background-image: radial-gradient(
+        circle 712px at 2.5% 16.7%,
+        rgba(117, 205, 217, 1) 0%,
+        rgba(1, 111, 126, 1) 90.1%
+    );
+    transition: 0.3s;
+    border-radius: 30px;
+    box-shadow: 0 0 25px rgb(0, 0, 0, 0.3);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.wrap__left {
+    padding: 40px;
+    border-radius: 30px;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 10px 0 10px rgb(0, 0, 0, 0.1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.wrap__password {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+	width: 620px;
+    padding: 40px;
+    border-radius: 0 30px 30px 0;
+    z-index: 0;
+    animation: slideOut 1.8s forwards linear;
 }
 
-.App-link {
-  color: #61dafb;
+.wrap__password h1 {
+    color: white;
+    font-size: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wrap__password__input {
+    position: relative;
+    display: flex;
+    margin-top: 20px;
+}
+
+.password__input {
+    width: 300px;
+    height: 40px;
+    padding: 8px;
+    border: 0;
+    border-radius: 10px 0 0 10px;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgb(255, 255, 255);
+    border: 0.5px solid rgb(115, 115, 115);
+}
+
+.password__input::placeholder {
+    color: rgb(207, 207, 207);
+}
+
+.copy__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 8px;
+    border: 0;
+    border-radius: 0 10px 10px 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 0.5px solid rgb(115, 115, 115);
+    border-left: 0;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.copy__button__active {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.copy__button img {
+    width: 14px;
+}
+
+.tooltip {
+    position: absolute;
+    right: -90px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 8px;
+    border-radius: 6px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 0.5px solid rgb(115, 115, 115);
+}
+
+.wrap__checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.wrap__checkbox span {
+    width: 40px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(57, 57, 57);
+}
+
+.wrap__label {
+    display: flex;
+    flex-direction: column;
+}
+
+.example__text {
+    font-size: 11px;
+    color: rgb(140, 140, 140);
+}
+
+.range__slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 5px;
+    border-radius: 10px;
+    margin: 0 10px;
+    background-color: rgb(207, 207, 207);
+    transition: opacity 0.2s;
+}
+
+.range__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #26a0da;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.range__slider::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 7px #26a0da;
+}
+
+.gen__button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 0;
+    border-radius: 10px;
+    background-size: 210% auto;
+    background-position: right center;
+    color: white;
+    cursor: pointer;
+    background-image: radial-gradient(
+        circle 712px at 2.5% 16.7%,
+        rgba(117, 205, 217, 1) 0%,
+        rgba(1, 111, 126, 1) 90.1%
+    );
+    transition: 0.7s;
+}
+
+.gen__button:hover {
+    background-position: left center;
+}
+
+.wrap__pattern {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 0 0 30px 30px;
+}
+
+.icon {
+    position: absolute;
+    width: 30px;
+    opacity: 0.2;
+}
+
+.icon1 {
+    bottom: -20px;
+    width: 110px;
+    transform: rotate(25deg);
+}
+
+.icon2 {
+    width: 70px;
+    bottom: 50px;
+    left: 170px;
+    transform: rotate(-25deg);
+}
+
+.icon3 {
+    width: 140px;
+    right: 0;
+    bottom: 0;
+    transform: rotate(25deg);
+}
+
+.icon4 {
+    width: 80px;
+    right: 200px;
+    transform: rotate(-10deg);
+}
+
+.icon5 {
+    width: 45px;
+    right: 170px;
+    bottom: 20px;
+    transform: rotate(-15deg);
+}
+
+.icon6 {
+    width: 40px;
+    transform: rotate(-15deg);
+}
+
+.icon7 {
+    width: 35px;
+    left: 430px;
+    top: 10px;
+}
+
+.icon8 {
+    width: 80px;
+    left: 230px;
+    bottom: -10px;
+    transform: rotate(15deg);
+}
+
+.icon9 {
+    width: 50px;
+    left: 280px;
+    top: 10px;
+    transform: rotate(65deg);
+}
+
+.icon10 {
+    left: 70px;
+    top: 20px;
+    transform: rotate(15deg);
+}
+
+.icon11 {
+    width: 45px;
+    left: 170px;
+    bottom: 5px;
+    transform: rotate(-25deg);
+}
+
+.icon12 {
+    width: 50px;
+    right: 90px;
+    bottom: -10px;
+    transform: rotate(15deg);
+}
+
+.icon13 {
+    width: 50px;
+    top: -5px;
+    left: 120px;
+    transform: rotate(15deg);
+}
+
+.icon14 {
+    left: 120px;
+    top: 50px;
+}
+
+.icon15 {
+    width: 55px;
+    right: 230px;
+    bottom: -5px;
+    transform: rotate(-15deg);
+}
+
+.icon16 {
+    width: 60px;
+    left: 100px;
+    bottom: -20px;
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 0;
+        margin-left: -700px;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+	.container {
+		flex-direction: column;
+		width: 98vw;
+	}
+	.wrap__password {
+		width: 98vw;
+		padding: 10px 0 150px 0;
+	}
+	.wrap__password h1 {
+		font-size: 25px;
+		text-align: center;
+	}
+	.icon9, .icon8, .icon13, .icon14, .icon16, .icon11, .icon2 {
+		opacity: 0;
+	}
+}
+@media screen and (max-width: 900px) {
+	.container {
+		flex-direction: column;
+		width: 98vw;
+	}
+	.wrap__password {
+		width: 98vw;
+		padding: 10px 0 150px 0;
+	}
+	.wrap__password h1 {
+		font-size: 25px;
+		text-align: center;
+	}
+	.icon9, .icon8, .icon13, .icon14, .icon16, .icon11, .icon2 {
+		opacity: 0;
+	}
 }
